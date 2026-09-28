@@ -1,0 +1,387 @@
+.profile-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  padding: 36px 28px 24px;
+  border-radius: var(--card-radius);
+  background: linear-gradient(135deg, rgba(136, 28, 156, 0.14) 0%, rgba(18, 12, 24, 0.45) 50%, rgba(10, 10, 12, 0.7) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(136, 28, 156, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-card:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 0 50px rgba(136, 28, 156, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.card-glass-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Card Top Bar */
+.card-top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.views-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.views-icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.share-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.copied-check {
+  color: #4ade80;
+}
+
+/* Avatar Section */
+.avatar-section {
+  margin: 10px 0 20px;
+  position: relative;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(136, 28, 156, 0.5);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.profile-card:hover .avatar-image {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 28px rgba(192, 132, 252, 0.7);
+}
+
+.avatar-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.25);
+  animation: spin-slow 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Identity Section */
+.identity-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.name-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.display-name {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.8), 0 0 30px rgba(136, 28, 156, 0.5);
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+.uid-tooltip-badge {
+  padding: 3px 8px;
+  background: rgba(20, 20, 20, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.uid-tooltip-badge:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.uid-copied-tag {
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.bio-description {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-family: var(--font-mono);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Discord Widget */
+.discord-widget {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.discord-widget:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.discord-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.discord-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discord-status-icon {
+  color: #ef4444;
+}
+
+.discord-status-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.discord-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.discord-badge-pill {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.discord-subtext {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.discord-subtext a {
+  color: #c084fc;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.discord-subtext a:hover {
+  color: #e9d5ff;
+}
+
+/* Social Icons Container */
+.socials-container {
+  width: 100%;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.socials-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.social-link-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-link-item:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px var(--hover-glow);
+}
+
+.social-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 6px var(--hover-glow));
+  transition: transform 0.2s ease;
+}
+
+.social-link-item:hover .social-icon-wrapper {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px var(--hover-glow));
+}
+
+.social-custom-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.social-tooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 3px 8px;
+  background: rgba(10, 10, 12, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  font-size: 11px;
+  color: #ffffff;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 20;
+}
+
+.social-link-item:hover .social-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Card Footer */
+.card-footer {
+  margin-top: 14px;
+}
+
+.guns-watermark {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.guns-watermark:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

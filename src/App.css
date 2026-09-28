@@ -1,0 +1,45 @@
+.guns-app-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #070709;
+}
+
+.main-content {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, transform 0.8s ease;
+}
+
+.main-content.blurred {
+  filter: blur(14px) brightness(0.6);
+  opacity: 0.3;
+  transform: scale(0.96);
+  pointer-events: none;
+}
+
+.main-content.entered {
+  filter: blur(0px) brightness(1);
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  animation: enterCardAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes enterCardAnim {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
