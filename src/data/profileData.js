@@ -34,7 +34,7 @@ export const initialProfileData = {
     {
       id: "twitter",
       name: "X (Twitter)",
-      url: "https://x.com/actorvijay",
+      url: "https://x.com/sanjeev007N",
       iconType: "twitter",
       glowColor: "#ff0055"
     },
